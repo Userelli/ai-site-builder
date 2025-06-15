@@ -2,7 +2,12 @@ import React from "react";
 import Hero from "@/components/blocks/Hero";
 import Features from "@/components/blocks/Features";
 import CTA from "@/components/blocks/CTA";
-import { PageSchema } from "@/lib/pageSchema";
+import {
+  PageSchema,
+  CTAContent,
+  HeroContent,
+  FeaturesContent,
+} from "@/lib/pageSchema";
 
 const pageData: PageSchema = {
   pageName: "Home",
@@ -53,11 +58,26 @@ export default function PreviewPage() {
       {pageData.blocks.map((block, index) => {
         switch (block.type) {
           case "hero":
-            return <Hero key={index} content={block.content} />;
+            return (
+              <Hero
+                key={index}
+                content={block.content as HeroContent}
+              />
+            );
           case "features":
-            return <Features key={index} content={block.content} />;
+            return (
+              <Features
+                key={index}
+                content={block.content as FeaturesContent}
+              />
+            );
           case "cta":
-            return <CTA key={index} content={block.content} />;
+            return (
+              <CTA
+                key={index}
+                content={block.content as CTAContent}
+              />
+            );
           default:
             return null;
         }

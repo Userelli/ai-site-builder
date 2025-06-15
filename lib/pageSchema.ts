@@ -12,6 +12,7 @@ export type CTAContent = {
   };
   
   export type FeaturesContent = {
+    title: string; // ✅ Added so content.title works in Features.tsx
     features: {
       title: string;
       description: string;

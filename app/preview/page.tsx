@@ -1,12 +1,11 @@
-import React from "react";
 import Hero from "@/components/blocks/Hero";
 import Features from "@/components/blocks/Features";
 import CTA from "@/components/blocks/CTA";
 import {
   PageSchema,
-  CTAContent,
   HeroContent,
   FeaturesContent,
+  CTAContent,
 } from "@/lib/pageSchema";
 
 const pageData: PageSchema = {
@@ -15,28 +14,31 @@ const pageData: PageSchema = {
     {
       type: "hero",
       content: {
-        headline: "Build websites with AI",
-        subheadline: "From idea to HTML in seconds",
-        buttonText: "Try Now",
-        buttonLink: "/builder",
+        headline: "Grow Your Business with AI",
+        subheadline: "Launch beautiful websites instantly",
+        buttonText: "Get Started",
+        buttonLink: "#",
       },
     },
     {
       type: "features",
       content: {
-        title: "What you get",
+        title: "Why Choose Us?",
         features: [
           {
-            title: "Instant HTML",
-            description: "No more manual coding. Get production-ready HTML instantly.",
+            icon: "⚡",
+            title: "Fast",
+            description: "Instant site generation from text.",
           },
           {
-            title: "SEO Optimized",
-            description: "Clean code with best practices out of the box.",
+            icon: "🎨",
+            title: "Beautiful",
+            description: "Clean modern designs ready to publish.",
           },
           {
-            title: "Export Ready",
-            description: "Download your HTML/CSS files anytime.",
+            icon: "🛠",
+            title: "Customizable",
+            description: "Built for flexibility and scalability.",
           },
         ],
       },
@@ -44,9 +46,9 @@ const pageData: PageSchema = {
     {
       type: "cta",
       content: {
-        message: "Ready to launch your site?",
-        buttonLabel: "Start Building",
-        buttonUrl: "/builder",
+        message: "Ready to create your AI-powered website?",
+        buttonLabel: "Launch Now",
+        buttonUrl: "#",
       },
     },
   ],

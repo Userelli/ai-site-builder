@@ -1,17 +1,23 @@
 import Hero from "@/components/blocks/Hero";
 import Features from "@/components/blocks/Features";
 import CTA from "@/components/blocks/CTA";
-import { PageSchema } from "@/lib/pageSchema";
+import {
+  PageSchema,
+  HeroContent,
+  FeaturesContent,
+  CTAContent,
+} from "@/lib/pageSchema";
 
 const pageData: PageSchema = {
   pageName: "Home",
-  sections: [
+  blocks: [
     {
       type: "hero",
       content: {
         headline: "Grow Your Business with AI",
         subheadline: "Launch beautiful websites instantly",
         buttonText: "Get Started",
+        buttonLink: "#",
       },
     },
     {
@@ -19,9 +25,21 @@ const pageData: PageSchema = {
       content: {
         title: "Why Choose Us?",
         features: [
-          { icon: "⚡", title: "Fast", description: "Instant site generation" },
-          { icon: "🎨", title: "Beautiful", description: "Clean modern design" },
-          { icon: "🔧", title: "Customizable", description: "Built with flexibility in mind" },
+          {
+            icon: "⚡",
+            title: "Fast",
+            description: "Instant site generation from text.",
+          },
+          {
+            icon: "🎨",
+            title: "Beautiful",
+            description: "Clean modern designs ready to publish.",
+          },
+          {
+            icon: "🛠",
+            title: "Customizable",
+            description: "Built for flexibility and scalability.",
+          },
         ],
       },
     },
@@ -38,15 +56,30 @@ const pageData: PageSchema = {
 
 export default function PreviewPage() {
   return (
-    <main className="min-h-screen">
-      {pageData.sections.map((section, index) => {
-        switch (section.type) {
+    <main>
+      {pageData.blocks.map((block, index) => {
+        switch (block.type) {
           case "hero":
-            return <Hero key={index} content={section.content} />;
+            return (
+              <Hero
+                key={index}
+                content={block.content as HeroContent}
+              />
+            );
           case "features":
-            return <Features key={index} content={section.content} />;
+            return (
+              <Features
+                key={index}
+                content={block.content as FeaturesContent}
+              />
+            );
           case "cta":
-            return <CTA key={index} content={section.content} />;
+            return (
+              <CTA
+                key={index}
+                content={block.content as CTAContent}
+              />
+            );
           default:
             return null;
         }

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Hero from "@/components/blocks/Hero";
 import Features from "@/components/blocks/Features";
 import CTA from "@/components/blocks/CTA";
@@ -9,79 +11,89 @@ import {
   FeaturesContent,
 } from "@/lib/pageSchema";
 
-const pageData: PageSchema = {
-  pageName: "Home",
-  blocks: [ // ✅ Must be "blocks", not ""
-    {
-      type: "hero",
-      content: {
-        headline: "Build websites with AI",
-        subheadline: "From idea to HTML in seconds",
-        buttonText: "Try Now",
-        buttonLink: "/builder",
-      },
-    },
-    {
-      type: "features",
-      content: {
-        title: "What you get",
-        features: [
-          {
-            title: "Instant HTML",
-            description: "No more manual coding. Get production-ready HTML instantly.",
-          },
-          {
-            title: "SEO Optimized",
-            description: "Clean code with best practices out of the box.",
-          },
-          {
-            title: "Export Ready",
-            description: "Download your HTML/CSS files anytime.",
-          },
-        ],
-      },
-    },
-    {
-      type: "cta",
-      content: {
-        message: "Ready to launch your site?",
-        buttonLabel: "Start Building",
-        buttonUrl: "/builder",
-      },
-    },
-  ],
+const initialSchema: PageSchema = {
+  pageName: "Untitled",
+  blocks: [],
 };
 
-export default function PreviewPage() {
+export default function BuilderPage() {
+  const [pageData, setPageData] = useState<PageSchema>(initialSchema);
+
+  const generateSamplePage = () => {
+    setPageData({
+      pageName: "Generated Page",
+      blocks: [
+        {
+          type: "hero",
+          content: {
+            headline: "AI Website Builder",
+            subheadline: "Generate full HTML websites instantly",
+            buttonText: "Get Started",
+            buttonLink: "/builder",
+          },
+        },
+        {
+          type: "features",
+          content: {
+            title: "Features",
+            features: [
+              { title: "No Code", description: "Just prompts, no coding" },
+              { title: "Export Ready", description: "HTML/CSS ready to go" },
+              { title: "Free Tier", description: "Try it for free" },
+            ],
+          },
+        },
+        {
+          type: "cta",
+          content: {
+            message: "Want to launch now?",
+            buttonLabel: "Export Site",
+            buttonUrl: "/export",
+          },
+        },
+      ],
+    });
+  };
+
   return (
-    <main>
-      {pageData.blocks.map((block, index) => {
-        switch (block.type) {
-          case "hero":
-            return (
-              <Hero
-                key={index}
-                content={block.content as HeroContent}
-              />
-            );
-          case "features":
-            return (
-              <Features
-                key={index}
-                content={block.content as FeaturesContent}
-              />
-            );
-          case "cta":
-            return (
-              <CTA
-                key={index}
-                content={block.content as CTAContent}
-              />
-            );
-          default:
-            return null;
-        }
-      })}
+    <main className="p-4">
+      <h1 className="text-xl font-bold mb-4">Builder</h1>
+      <button
+        onClick={generateSamplePage}
+        className="bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        Generate Sample Page
+      </button>
+
+      <div className="mt-6">
+        {pageData.blocks.map((block, index) => {
+          switch (block.type) {
+            case "hero":
+              return (
+                <Hero
+                  key={index}
+                  content={block.content as HeroContent}
+                />
+              );
+            case "features":
+              return (
+                <Features
+                  key={index}
+                  content={block.content as FeaturesContent}
+                />
+              );
+            case "cta":
+              return (
+                <CTA
+                  key={index}
+                  content={block.content as CTAContent}
+                />
+              );
+            default:
+              return null;
+          }
+        })}
+      </div>
     </main>
   );
 }

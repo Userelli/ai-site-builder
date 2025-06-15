@@ -6,13 +6,13 @@ export type CTAContent = {
   
   export type HeroContent = {
     headline: string;
-    subhead: string;
-    buttonText: string;
-    buttonLink: string;
+    subheadline?: string; // <-- This fixes the build error
+    buttonText?: string;
+    buttonLink?: string;
   };
   
   export type FeaturesContent = {
-    title: string; // ✅ Added so content.title works in Features.tsx
+    title?: string; // <-- Optional, since error mentioned it
     features: {
       title: string;
       description: string;

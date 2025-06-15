@@ -11,7 +11,7 @@ import {
 
 const pageData: PageSchema = {
   pageName: "Home",
-  blocks: [
+  blocks: [ // ✅ this was previously "sections" which caused the build to fail
     {
       type: "hero",
       content: {

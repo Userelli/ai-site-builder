@@ -11,7 +11,7 @@ import {
 
 const pageData: PageSchema = {
   pageName: "Home",
-  blocks: [ // ✅ Must be "blocks", not "sections"
+  blocks: [ // ✅ Must be "blocks", not ""
     {
       type: "hero",
       content: {

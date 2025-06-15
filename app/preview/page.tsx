@@ -11,7 +11,7 @@ import {
 
 const pageData: PageSchema = {
   pageName: "Home",
-  blocks: [ // ✅ this was previously "sections" which caused the build to fail
+  blocks: [ // ✅ This must be "blocks", NOT "sections"
     {
       type: "hero",
       content: {
@@ -35,8 +35,8 @@ const pageData: PageSchema = {
             description: "Clean code with best practices out of the box.",
           },
           {
-            title: "Download & Export",
-            description: "Export your HTML/CSS files easily.",
+            title: "Export Ready",
+            description: "Download your HTML/CSS files anytime.",
           },
         ],
       },

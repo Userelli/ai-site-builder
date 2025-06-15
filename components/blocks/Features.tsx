@@ -1,5 +1,5 @@
 "use client";
-import { FeaturesContent } from "../../lib/pageSchema";
+import { FeaturesContent } from "@/lib/pageSchema";
 export default function Features({ content }: { content: FeaturesContent }) {
   return (
     <section className="py-16 px-6 bg-white">

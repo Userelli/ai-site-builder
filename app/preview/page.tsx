@@ -1,10 +1,8 @@
-"use client";
-
 import React from "react";
 import Hero from "@/components/blocks/Hero";
 import Features from "@/components/blocks/Features";
 import CTA from "@/components/blocks/CTA";
-import { PageSchema, CTAContent, HeroContent, FeaturesContent } from "@/lib/pageSchema";
+import { PageSchema } from "@/lib/pageSchema";
 
 const pageData: PageSchema = {
   pageName: "Home",
@@ -49,23 +47,21 @@ const pageData: PageSchema = {
   ],
 };
 
-const PreviewPage = () => {
+export default function PreviewPage() {
   return (
-    <div>
+    <main>
       {pageData.blocks.map((block, index) => {
         switch (block.type) {
           case "hero":
-            return <Hero key={index} content={block.content as HeroContent} />;
+            return <Hero key={index} content={block.content} />;
           case "features":
-            return <Features key={index} content={block.content as FeaturesContent} />;
+            return <Features key={index} content={block.content} />;
           case "cta":
-            return <CTA key={index} content={block.content as CTAContent} />;
+            return <CTA key={index} content={block.content} />;
           default:
             return null;
         }
       })}
-    </div>
+    </main>
   );
-};
-
-export default PreviewPage;
+}

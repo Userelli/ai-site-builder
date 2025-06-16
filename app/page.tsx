@@ -1,4 +1,4 @@
-import PreviewPage from "@/app/preview/page";
+import PreviewPage from "./preview/page";
 
 export default function Home() {
   return <PreviewPage />;
